@@ -4,6 +4,7 @@ import {connect} from 'react-redux'
 import {TabNavigator} from 'react-navigation'
 import HomeTabNavigation from './HomeTabNavigation'
 import ProfileTabNavigation from './ProfileTabNavigation'
+import AuthNavigation from './AuthNavigation'
 
 class TabBarNavigation extends Component {
   render() {
@@ -40,8 +41,9 @@ export const tabBarReducer = (state,action) => {
 
 
 const routeConfiguration = {
-  HomeTabNavigation: { screen: HomeTabNavigation },
+  Login: { screen: AuthNavigation },
   ProfileTabNavigation: { screen: ProfileTabNavigation },
+  HomeTabNavigation: { screen: HomeTabNavigation },
 }
 
 const tabBarConfiguration = {

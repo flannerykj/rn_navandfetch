@@ -16,7 +16,7 @@ export function addBook(title, author) {
 export function fetchPosts() {
   return dispatch => {
     dispatch(requestPosts())
-    return fetch('https://facebook.github.io/react-native/movies.json')
+    return fetch('http://localhost:8000/performances/')
       .then((response) => response.json())
       .then(json => dispatch(receivePosts(json)))
       .catch(function(error) {
@@ -36,7 +36,7 @@ export function requestPosts() {
 export function receivePosts(json) {
   return {
     type: types.RECEIVE_POSTS,
-    items: json.movies,
+    items: json,
     receivedAt: Date.now()
   }
 }

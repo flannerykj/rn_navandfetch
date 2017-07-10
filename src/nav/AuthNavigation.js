@@ -9,18 +9,14 @@ import { StackNavigator } from 'react-navigation'
 // Redux
 import { connect } from 'react-redux'
 
-
-
-
-// Screens
-import ProfileView from '../views/ProfileView'
 import Login from '../views/Login'
 import Register from '../views/Register'
+import Profile from '../views/ProfileView'
 
 const routeConfiguration = {
   Login: { screen: Login },
-  Register: { screen: Register },
-  ProfileView: { screen: ProfileView },
+  Profile: { screen: Profile },
+  Register: {screen: Register}
 }
 
 // going to disable the header for now
@@ -28,18 +24,17 @@ const stackNavigatorConfiguration = {
   initialRouteName: 'Login'
 }
 
-export const NavigatorProfileTab = StackNavigator(routeConfiguration,stackNavigatorConfiguration)
+export const NavigatorAuth = StackNavigator(routeConfiguration,stackNavigatorConfiguration)
 
-class ProfileTabNavigation extends React.Component {
+class AuthNavigation extends React.Component {
   static navigationOptions = {
-    title: 'Profile Tab',
-    tabBarLabel: 'Profile Tab',
+    title: 'Auth Tab',
+    tabBarLabel: 'Auth Tab',
   }
-
   render(){
     const { navigationState, dispatch } = this.props
     return (
-      <NavigatorProfileTab
+      <NavigatorAuth
         navigation={
           addNavigationHelpers({
             dispatch: dispatch,
@@ -52,8 +47,8 @@ class ProfileTabNavigation extends React.Component {
 }
 const mapStateToProps = (state) => {
  return {
-  navigationState: state.profileTab
+  navigationState: state.authTab
   }
 }
 
-export default connect(mapStateToProps)(ProfileTabNavigation)
+export default connect(mapStateToProps)(AuthNavigation)

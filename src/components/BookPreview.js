@@ -11,7 +11,8 @@ export default class BookPreview extends Component {
 		const book = this.props.book
 		return(
 			<View>
-				<Text>{book.title}</Text>
+				<Text>{book.musician} at {book.date_time}</Text>
+				<Text>Comments: {book.comments}</Text>
 			</View>)
 	}
 }
