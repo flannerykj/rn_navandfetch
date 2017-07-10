@@ -41,9 +41,9 @@ export const tabBarReducer = (state,action) => {
 
 
 const routeConfiguration = {
-  Login: { screen: AuthNavigation },
-  ProfileTabNavigation: { screen: ProfileTabNavigation },
   HomeTabNavigation: { screen: HomeTabNavigation },
+  ProfileTabNavigation: { screen: ProfileTabNavigation },
+
 }
 
 const tabBarConfiguration = {

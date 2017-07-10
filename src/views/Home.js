@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ActivityIndicator, ListView, Text, View } from 'react-native';
+import { ActivityIndicator, ListView, Text, View, TouchableOpacity } from 'react-native';
 
 export default class Login extends Component {
   constructor(props) {
@@ -47,6 +47,19 @@ export default class Login extends Component {
           dataSource={this.state.dataSource}
           renderRow={(rowData) => <Text>{rowData.id}, {rowData.audience}</Text>}
         />
+        <TouchableOpacity
+          onPress={ () => {
+            this.props.navigation.navigate('BookDetail');
+          }}
+          style={{
+            padding:20,
+            borderRadius:20,
+            borderWidth: 2,
+            borderColor:'green',
+            marginTop:20
+          }}>
+          <Text>{'Book Detail'}</Text>
+        </TouchableOpacity>
       </View>
     );
   }

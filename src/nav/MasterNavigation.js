@@ -9,30 +9,29 @@ import { StackNavigator } from 'react-navigation'
 // Redux
 import { connect } from 'react-redux'
 
-import Login from '../views/Login'
-import Register from '../views/Register'
+import AuthNavigation from './AuthNavigation'
+import TabBarNavigation from './TabBarNavigation'
 
 const routeConfiguration = {
-  Login: { screen: Login },
-  Register: {screen: Register}
+  Auth: { screen: AuthNavigation },
+  Main: { screen: TabBarNavigation },
 }
 
 // going to disable the header for now
 const stackNavigatorConfiguration = {
-  initialRouteName: 'Login',
-  headerMode: 'none',
+  initialRouteName: 'Auth',
 }
 
-export const NavigatorAuth = StackNavigator(routeConfiguration,stackNavigatorConfiguration)
+export const NavigatorMaster= StackNavigator(routeConfiguration,stackNavigatorConfiguration)
 
-class AuthNavigation extends React.Component {
+class MasterNavigation extends React.Component {
   static navigationOptions = {
-
   }
+
   render(){
     const { navigationState, dispatch } = this.props
     return (
-      <NavigatorAuth
+      <NavigatorMaster
         navigation={
           addNavigationHelpers({
             dispatch: dispatch,
@@ -45,8 +44,8 @@ class AuthNavigation extends React.Component {
 }
 const mapStateToProps = (state) => {
  return {
-  navigationState: state.authTab
+  navigationState: state.masterNav
   }
 }
 
-export default connect(mapStateToProps)(AuthNavigation)
+export default connect(mapStateToProps)(MasterNavigation)

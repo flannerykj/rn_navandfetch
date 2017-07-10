@@ -1,4 +1,4 @@
-//version of Home with Redux. Not in use. 
+//version of Home with Redux. Not in use.
 
 import React, { Component } from 'react';
 import {
@@ -30,7 +30,7 @@ class HomeTabMain extends Component {
           Home Tab - Main
         </Text>
         <TouchableOpacity
-          onPress={ () => this.props.navigation.navigate('BookDetailView') }
+          onPress={ () => this.props.navigator.navigate('BookDetailView') }
           style={{
             padding:20,
             borderRadius:20,

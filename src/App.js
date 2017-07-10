@@ -4,13 +4,13 @@ import {
 } from 'react-native';
 import {Provider} from 'react-redux';
 import store from './store'
-import TabBarNavigation from './nav/TabBarNavigation'
+import MasterNavigation from './nav/MasterNavigation'
 
 export default class bookapp extends Component {
   render() {
     return (
       <Provider store={store}>
-        <TabBarNavigation />
+        <MasterNavigation />
       </Provider>
     );
   }

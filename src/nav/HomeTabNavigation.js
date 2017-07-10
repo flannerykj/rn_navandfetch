@@ -8,18 +8,20 @@ import { addNavigationHelpers } from 'react-navigation'
 import { StackNavigator } from 'react-navigation'
 // Redux
 import { connect } from 'react-redux'
+import Home from '../views/Home'
+import BookDetail from '../views/BookDetail'
 
-import HomeView from '../views/HomeView'
-import BookDetailView from '../views/BookDetailView'
+import Header from '../components/Header'
 
 const routeConfiguration = {
-  HomeView: { screen: HomeView },
-  BookDetailView: { screen: BookDetailView },
+  Home: { screen: Home },
+  BookDetail: { screen: BookDetail },
 }
 
 // going to disable the header for now
 const stackNavigatorConfiguration = {
-  initialRouteName: 'HomeView'
+  initialRouteName: 'Home',
+  headerMode: 'float'
 }
 
 export const NavigatorHomeTab = StackNavigator(routeConfiguration,stackNavigatorConfiguration)
@@ -28,6 +30,8 @@ class HomeTabNavigation extends React.Component {
   static navigationOptions = {
     title: 'Home Tab',
     tabBarLabel: 'Home Tab',
+    headerMode: 'float',
+
   }
   render(){
     const { navigationState, dispatch } = this.props

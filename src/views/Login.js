@@ -10,11 +10,14 @@ import {
   TouchableOpacity
 } from 'react-native';
 import Form from 'react-native-form'
-import ErrorMessage from '../components/ErrorMessage'
+import Message from '../components/Message'
 
 export default class Login extends Component {
   constructor(props) {
     super(props);
+    AsyncStorage.getItem('token').then((value) => {
+        this.props.navigation.navigate('Main');
+    })
     this.state = {
       isLoading: false,
       dataSource: '',
@@ -44,7 +47,7 @@ export default class Login extends Component {
           })
           try {
             AsyncStorage.multiSet([['token', responseJson.token], ['username', username]], () => {
-                this.props.navigation.navigate('Profile');
+                this.props.navigation.navigate('Main');
             })
           } catch(err) {
             console.log(err)
@@ -56,17 +59,6 @@ export default class Login extends Component {
           })
         }
       })
-  }
-
-  invalid_login(error) {
-    console.log('error');
-    this.setState({
-      isError: true,
-    })
-  }
-  componentDidMount() {
-    //this._signin('flannery', 'cheesecake');
-
   }
 
     render() {
@@ -87,7 +79,7 @@ export default class Login extends Component {
         );
       }
       if (this.state.isError) {
-           errorMessage = <ErrorMessage text="Incorrect login credentials"/>
+           errorMessage = <Message text="Incorrect login credentials"/>
       } else {
           errorMessage = <View></View>
         }

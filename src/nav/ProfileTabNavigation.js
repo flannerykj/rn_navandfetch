@@ -10,22 +10,16 @@ import { StackNavigator } from 'react-navigation'
 import { connect } from 'react-redux'
 
 
-
-
 // Screens
-import ProfileView from '../views/ProfileView'
-import Login from '../views/Login'
-import Register from '../views/Register'
+import Profile from '../views/Profile'
 
 const routeConfiguration = {
-  Login: { screen: Login },
-  Register: { screen: Register },
-  ProfileView: { screen: ProfileView },
+  Profile: { screen: Profile},
 }
 
 // going to disable the header for now
 const stackNavigatorConfiguration = {
-  initialRouteName: 'Login'
+  initialRouteName: 'Profile'
 }
 
 export const NavigatorProfileTab = StackNavigator(routeConfiguration,stackNavigatorConfiguration)
